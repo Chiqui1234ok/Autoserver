@@ -1,3 +1,4 @@
+# ⚡ RUN AS ROOT ⚡
 # Perform an update for future installations
 apt update
 # Install dependencies

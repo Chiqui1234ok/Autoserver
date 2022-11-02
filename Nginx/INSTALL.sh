@@ -1,4 +1,6 @@
 # ⚡RUN AS ROOT ⚡
+# Change "proxy_pass         http://31.170.165.136:3001;" with your IP and desired port (this port need to match your NodeJs app)
+
 # Create a new APT file for add nginx to repo
 touch /etc/apt/sources.list.d/nginx.list
 # Append file and put valid URL to Nginx PPA
@@ -23,6 +25,6 @@ ufw allow 3001/tcp
 ufw reload
 
 # Create Nginx file
-echo -e "server {\nlisten 80;\nserver_name sysmon.tecmint.lan;\nlocation / {\nproxy_set_header   X-Forwarded-For $remote_addr;\nproxy_set_header   Host $http_host;\nproxy_pass         http://192.168.43.31:5000;\n}\n}" >> /etc/nginx/conf.d/sysmon.conf 
+echo -e "server {\nlisten 80;\nserver_name sysmon.tecmint.lan;\nlocation / {\nproxy_set_header   X-Forwarded-For $remote_addr;\nproxy_set_header   Host $http_host;\nproxy_pass         http://31.170.165.136:3001;\n}\n}" >> /etc/nginx/conf.d/sysmon.conf 
 # Restart nginx
 systemctl restart nginx
