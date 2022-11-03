@@ -7,9 +7,10 @@ const hostname = '31.170.165.136';
 const port = 3001;
 
 const server = http.createServer((req, res) => {
+	const url = req.url;
 	res.statusCode = 200;
   	res.setHeader('Content-Type', 'text/plain');
-  	res.end('Sysmon App is Up and Running!\n');
+  	res.end(`Minermate server is running!\nURL: ${url}.`);
 });
 
 server.listen(port, hostname, () => {
